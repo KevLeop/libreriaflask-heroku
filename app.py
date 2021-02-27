@@ -13,7 +13,7 @@ from models.libro import LibroModel
 # from models.sedeLibro import SedeLibroModel
 from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
-
+import os # sirve para usar las variables de entorno tanto de la maquina como de heroku
 
 SWAGGER_URL = "" # para indicar en qué endpoint se necontrará la documentacion
 API_URL = '/static/swagger.json' # se usa para indicar enq ue parde del proyecto se encuentra el archivo de la documentacion
@@ -29,7 +29,7 @@ app.register_blueprint(swagger_blueprint)
 
 print(app.config)
 # app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:@localhost:3306/flasklibreria'
-app.config['SQLALCHEMY_DATABASE_URI']='mysql://gq701i1c5f7mpz9b:u1iv3wj380ztc7o5@td5l74lo6615qq42.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/rb452i44ef2f1sy4'
+app.config['SQLALCHEMY_DATABASE_URI']=  os.environ['JAWSDB_URL']
 api = Api(app)
 CORS(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
