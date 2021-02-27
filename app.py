@@ -28,7 +28,8 @@ app=Flask(__name__)
 app.register_blueprint(swagger_blueprint)
 
 print(app.config)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:@localhost:3306/flasklibreria'
+# app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:@localhost:3306/flasklibreria'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql://gq701i1c5f7mpz9b:u1iv3wj380ztc7o5@td5l74lo6615qq42.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/rb452i44ef2f1sy4'
 api = Api(app)
 CORS(app)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
